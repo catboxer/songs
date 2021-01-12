@@ -15,21 +15,20 @@ class SongCreate extends Component{
   }
 onSubmit(event){
   event.preventDefault();
-this.props.mutate({
+  this.props.mutate({
   variables: {
     title: this.state.title
   },
   refetchQueries:[{query:query}]
-}).then(()=> hashHistory.push('/'))
-.catch((err) => console.log(err))
-}
+  }).then(()=> hashHistory.push('/'))
+  .catch((err) => console.log(err))
+  }
   render(){
   return (
     <div>
-              <Link 
-        to="/">
+      <Link to="/">
           Back
-        </Link>
+      </Link>
       <h3>Create A New Song</h3>
       <form onSubmit={this.onSubmit.bind(this)}>
         <label htmlFor="title">Song Title:</label>
